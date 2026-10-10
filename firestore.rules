@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Only YOUR verified Google account counts as admin.
+    // >>> Replace the email below with your own Gmail before publishing the rules. <<<
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email == 'bhabennarzary96@gmail.com';
+    }
+
+    // Site content: everyone can read, only admin can write.
+    match /site/content {
+      allow read: if true;
+      allow create, update: if isAdmin()
+        && request.resource.data.keys().hasOnly(['projects', 'skillGroups', 'experience', 'updatedAt'])
+        && request.resource.data.projects.size() <= 50
+        && request.resource.data.skillGroups.size() <= 10
+        && request.resource.data.experience.size() <= 30;
+      allow delete: if false;
+    }
+
+    // CV (small PDF stored as base64): everyone can read, only admin can write.
+    match /site/cv {
+      allow read: if true;
+      allow create, update: if isAdmin()
+        && request.resource.data.keys().hasOnly(['fileName', 'mimeType', 'dataBase64', 'size', 'uploadedAt'])
+        && request.resource.data.mimeType == 'application/pdf'
+        && request.resource.data.size <= 700000
+        && request.resource.data.dataBase64.size() <= 950000;
+      allow delete: if isAdmin();
+    }
+
+    // Everything else is denied by default.
+  }
+}
