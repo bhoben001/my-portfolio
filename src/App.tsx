@@ -173,22 +173,26 @@ export default function App() {
           <div className="flex items-center gap-7 text-sm font-sans">
             <button
               onClick={() => {
-                setActiveNav('achievements');
-                scrollToSection('experience');
+                setActiveNav("achievements");
+                scrollToSection("experience");
               }}
               className={`transition-colors ${
-                activeNav === 'achievements' ? 'text-[#c4b5fd]' : 'text-[#8e88a3] hover:text-[#c9c5d8]'
+                activeNav === "achievements"
+                  ? "text-[#c4b5fd]"
+                  : "text-[#8e88a3] hover:text-[#c9c5d8]"
               }`}
             >
               Achievements
             </button>
             <button
               onClick={() => {
-                setActiveNav('links');
-                scrollToSection('contact');
+                setActiveNav("links");
+                scrollToSection("contact");
               }}
               className={`transition-colors ${
-                activeNav === 'links' ? 'text-[#c4b5fd]' : 'text-[#8e88a3] hover:text-[#c9c5d8]'
+                activeNav === "links"
+                  ? "text-[#c4b5fd]"
+                  : "text-[#8e88a3] hover:text-[#c9c5d8]"
               }`}
             >
               Links
@@ -197,16 +201,23 @@ export default function App() {
             {firebaseEnabled &&
               (isAdmin ? (
                 <div className="flex items-center gap-2">
-                  <button onClick={() => setModal({ type: 'cv' })} className={btnSmall}>
+                  <button
+                    onClick={() => setModal({ type: "cv" })}
+                    className={btnSmall}
+                  >
                     <FileText className="w-3 h-3 text-[#a78bfa]" /> CV
                   </button>
                   <button
-                    onClick={() => setModal({ type: 'project' })}
+                    onClick={() => setModal({ type: "project" })}
                     className="text-xs font-mono px-2.5 py-1 rounded bg-[#7b61ff] hover:bg-[#6c51f5] text-white flex items-center gap-1 transition-colors cursor-pointer"
                   >
                     <Plus className="w-3 h-3" /> Project
                   </button>
-                  <button onClick={() => logout()} title="Sign out" className={btnSmall}>
+                  <button
+                    onClick={() => logout()}
+                    title="Sign out"
+                    className={btnSmall}
+                  >
                     <Unlock className="w-3 h-3 text-[#a78bfa]" /> Logout
                   </button>
                 </div>
@@ -220,7 +231,6 @@ export default function App() {
                   <Lock className="w-3.5 h-3.5" />
                 </button>
               ))}
-
           </div>
         </nav>
       </header>
@@ -248,7 +258,7 @@ export default function App() {
 
         {/* Dual color name styling: BHOBEN Narzary */}
         <h1 className="text-4xl md:text-5xl font-mono font-bold tracking-tight mb-4">
-          <span className="text-[#c4b5fd]">BHOBEN</span>{' '}
+          <span className="text-[#c4b5fd]">BHOBEN</span>{" "}
           <span className="text-[#d8d3f0]">Narzary</span>
         </h1>
 
@@ -284,7 +294,6 @@ export default function App() {
               {cvAlertMessage}
             </div>
           )}
-
         </div>
       </section>
 
@@ -292,7 +301,9 @@ export default function App() {
       <section className="max-w-4xl mx-auto px-4 mb-28">
         <div className="bg-[#1b1926] border border-[#2b273b] rounded-xl overflow-hidden shadow-2xl">
           <div className="px-4 py-2.5 bg-[#1e1b2b] border-b border-[#2b273b] flex items-center">
-            <span className="text-xs font-mono text-[#78718f]">guest@bhoben: ~</span>
+            <span className="text-xs font-mono text-[#78718f]">
+              guest@bhoben: ~
+            </span>
           </div>
 
           <div className="p-6 font-mono text-sm space-y-5">
@@ -300,8 +311,10 @@ export default function App() {
               <p className="text-[#a78bfa] mb-2">
                 <span className="text-[#c4b5fd]">#&nbsp;</span>whoami
               </p>
-              <p className="text-[#b5afca] pl-1 leading-relaxed"> A backend developer who loves building 
-              Java application</p>
+              <p className="text-[#b5afca] pl-1 leading-relaxed">
+                {" "}
+                A backend developer who loves building Java application
+              </p>
             </div>
 
             <div>
@@ -331,14 +344,17 @@ export default function App() {
 
           <div className="p-6 font-mono text-sm text-[#b5afca] space-y-4 leading-relaxed">
             <p>
-              I'm a backend developer who enjoys turning ideas into clean, working server-side applications. My main language is Java, and I build most of my work on top of Spring Boot, from REST APIs and database layers to authentication and authorization.
+              I'm a 2nd year Computer Science student who enjoys building things and
+              understanding how they work behind the scenes. I'm particularly interested 
+              in backend development, working with Java and Spring Boot, and turning ideas into projects. 
             </p>
             <p>
-              I care about writing code that is readable, well structured and secure. I like understanding how things work under the hood, whether that's how JPA maps entities to tables or how Spring Security filters a request.
-            </p>
-            <p>
-              I'm always learning, and I'm looking for opportunities to grow as a developer and work on real-world projects.
-            </p>
+              I enjoy solving problems, exploring new technologies, and learning by
+              actually building things rather than just following tutorials.</p>
+              <p>
+                I'm still learning, still experimenting, and figuring out what I want to build next.
+                For me, every project is a chance to get a little better at what I do.
+              </p>
           </div>
         </div>
       </section>
@@ -353,7 +369,10 @@ export default function App() {
         </p>
         {isAdmin && (
           <div className="flex justify-center -mt-6 mb-8">
-            <button onClick={() => setModal({ type: 'skills' })} className={btnSmall}>
+            <button
+              onClick={() => setModal({ type: "skills" })}
+              className={btnSmall}
+            >
               <Pencil className="w-3 h-3 text-[#a78bfa]" /> Edit skills
             </button>
           </div>
@@ -370,8 +389,13 @@ export default function App() {
                   key={skill.name}
                   className="bg-[#1b1926] border border-[#2b273b] rounded-xl px-4 py-3 flex items-center gap-3"
                 >
-                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: skill.color }} />
-                  <span className="font-mono text-sm text-[#d4d0e6]">{skill.name}</span>
+                  <span
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: skill.color }}
+                  />
+                  <span className="font-mono text-sm text-[#d4d0e6]">
+                    {skill.name}
+                  </span>
                 </div>
               ))}
             </div>
@@ -380,7 +404,10 @@ export default function App() {
       </section>
 
       {/* Section: Experience */}
-      <section id="experience" className={`max-w-4xl mx-auto px-4 mb-28 ${fade}`}>
+      <section
+        id="experience"
+        className={`max-w-4xl mx-auto px-4 mb-28 ${fade}`}
+      >
         <h2 className="text-3xl font-mono font-bold text-center text-[#d8d3f0] mb-2 flex items-center justify-center gap-2">
           <span className="text-[#a78bfa]">|</span> Experience
         </h2>
@@ -389,7 +416,10 @@ export default function App() {
         </p>
         {isAdmin && (
           <div className="flex justify-center -mt-6 mb-8">
-            <button onClick={() => setModal({ type: 'experience' })} className={btnSmall}>
+            <button
+              onClick={() => setModal({ type: "experience" })}
+              className={btnSmall}
+            >
               <Pencil className="w-3 h-3 text-[#a78bfa]" /> Edit experience
             </button>
           </div>
@@ -406,11 +436,13 @@ export default function App() {
                 key={item.title + item.period}
                 className={
                   item.highlight
-                    ? 'p-3.5 rounded-lg bg-[#241f33] border-l-2 border-[#a78bfa] space-y-1'
-                    : 'space-y-1'
+                    ? "p-3.5 rounded-lg bg-[#241f33] border-l-2 border-[#a78bfa] space-y-1"
+                    : "space-y-1"
                 }
               >
-                <p className="text-[#c4b5fd] font-semibold text-sm">{item.title}</p>
+                <p className="text-[#c4b5fd] font-semibold text-sm">
+                  {item.title}
+                </p>
                 <p className="text-[#d4d0e6]">{item.subtitle}</p>
                 <p className="text-[#78718f]">{item.period}</p>
               </div>
@@ -434,7 +466,9 @@ export default function App() {
             <div className="w-12 h-12 rounded-xl bg-[#241f33] border border-[#3b3353] flex items-center justify-center mx-auto mb-4 text-[#a78bfa]">
               <FolderGit2 className="w-6 h-6" />
             </div>
-            <p className="font-mono text-sm text-[#b5afca] mb-6">no projects yet. coming soon</p>
+            <p className="font-mono text-sm text-[#b5afca] mb-6">
+              no projects yet. coming soon
+            </p>
             <a
               href={SITE.github}
               target="_blank"
@@ -452,7 +486,7 @@ export default function App() {
                 key={proj.id}
                 proj={proj}
                 isAdmin={isAdmin}
-                onEdit={() => setModal({ type: 'project', project: proj })}
+                onEdit={() => setModal({ type: "project", project: proj })}
                 onDelete={() => deleteProject(proj)}
               />
             ))}
@@ -468,14 +502,18 @@ export default function App() {
 
         <div className="bg-[#1b1926] border border-[#2b273b] rounded-xl overflow-hidden shadow-2xl">
           <div className="px-4 py-2.5 bg-[#1e1b2b] border-b border-[#2b273b] flex items-center">
-            <span className="text-xs font-mono text-[#78718f]">contact-info</span>
+            <span className="text-xs font-mono text-[#78718f]">
+              contact-info
+            </span>
           </div>
 
           <div className="p-6 space-y-6">
             <CopyEmail email={SITE.email} />
 
             <div>
-              <p className="text-xs font-sans text-[#78718f] mb-3">Social Media Profiles</p>
+              <p className="text-xs font-sans text-[#78718f] mb-3">
+                Social Media Profiles
+              </p>
 
               <div className="space-y-2.5">
                 <a
@@ -521,7 +559,9 @@ export default function App() {
 
       {/* Footer */}
       <footer className="w-full border-t border-[#231f31] py-8 text-center text-xs font-mono text-[#5b5470]">
-        <p>© {new Date().getFullYear()} Bhoben Narzary • Built with clean code</p>
+        <p>
+          © {new Date().getFullYear()} Bhoben Narzary • Built with clean code
+        </p>
       </footer>
 
       {/* Contact Info Modal */}
@@ -529,7 +569,9 @@ export default function App() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xs p-4">
           <div className="bg-[#1b1926] border border-[#2b273b] rounded-xl max-w-md w-full overflow-hidden shadow-2xl">
             <div className="px-4 py-2.5 bg-[#1e1b2b] border-b border-[#2b273b] flex items-center justify-between">
-              <span className="text-xs font-mono text-[#c4b5fd]">Contact Information</span>
+              <span className="text-xs font-mono text-[#c4b5fd]">
+                Contact Information
+              </span>
               <button
                 onClick={() => setIsContactOpen(false)}
                 className="text-[#78718f] hover:text-[#d4d0e6] transition-colors"
@@ -585,24 +627,34 @@ export default function App() {
       )}
 
       {/* Admin modals */}
-      {isAdmin && modal?.type === 'project' && (
-        <ProjectEditor initial={modal.project} onSave={saveProject} onClose={() => setModal(null)} />
+      {isAdmin && modal?.type === "project" && (
+        <ProjectEditor
+          initial={modal.project}
+          onSave={saveProject}
+          onClose={() => setModal(null)}
+        />
       )}
-      {isAdmin && modal?.type === 'skills' && (
+      {isAdmin && modal?.type === "skills" && (
         <SkillsEditor
           initial={content.skillGroups}
-          onSave={(skillGroups) => persist({ ...content, skillGroups }, 'Skills updated.')}
+          onSave={(skillGroups) =>
+            persist({ ...content, skillGroups }, "Skills updated.")
+          }
           onClose={() => setModal(null)}
         />
       )}
-      {isAdmin && modal?.type === 'experience' && (
+      {isAdmin && modal?.type === "experience" && (
         <ExperienceEditor
           initial={content.experience}
-          onSave={(experience) => persist({ ...content, experience }, 'Experience updated.')}
+          onSave={(experience) =>
+            persist({ ...content, experience }, "Experience updated.")
+          }
           onClose={() => setModal(null)}
         />
       )}
-      {isAdmin && modal?.type === 'cv' && <CvManager onClose={() => setModal(null)} />}
+      {isAdmin && modal?.type === "cv" && (
+        <CvManager onClose={() => setModal(null)} />
+      )}
 
       {/* Toast */}
       {notice && (
@@ -610,8 +662,8 @@ export default function App() {
           role="status"
           className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] font-mono text-xs px-4 py-2 rounded-lg shadow-xl border ${
             notice.ok
-              ? 'bg-[#16241c] border-[#2b5238] text-emerald-300'
-              : 'bg-[#2d1b1b] border-[#522b2b] text-[#ff8a84]'
+              ? "bg-[#16241c] border-[#2b5238] text-emerald-300"
+              : "bg-[#2d1b1b] border-[#522b2b] text-[#ff8a84]"
           }`}
         >
           {notice.text}
